@@ -8,7 +8,7 @@ const NavBar: FC = () => {
   return (
     <Wrapper>
       <NavLink exact to="/">
-        <NeonLogo>Aurora</NeonLogo>
+        <NeonLogo>Logo</NeonLogo>
       </NavLink>
       <ul>
         <li>

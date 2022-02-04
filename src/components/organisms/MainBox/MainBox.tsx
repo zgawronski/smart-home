@@ -13,9 +13,9 @@ const MainBox: FC = () => {
         nemo dolore expedita animi sapiente, quidem distinctio eaque maxime iusto repudiandae natus?
       </h5>
       <Container>
-        <BoxDiv>żarówka</BoxDiv>
-        <BoxDiv></BoxDiv>
-        <BoxDiv></BoxDiv>
+        <BoxDiv>Żarówka</BoxDiv>
+        <BoxDiv>Gniazdko</BoxDiv>
+        <BoxDiv>Czujnik temp</BoxDiv>
       </Container>
     </Wrapper>
   );

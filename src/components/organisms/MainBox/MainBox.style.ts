@@ -30,12 +30,12 @@ export const BoxDiv = styled.div`
   display: flex;
   border: solid 1px purple;
   margin: 20px;
-  max-width: 40%;
-  max-height: 40%;
-  border-radius: 10px;
+  max-width: 10%;
+  max-height: 10%;
+  border-radius: 7px;
   background-color: ${({ theme }) => theme.colors.boxBackground};
   align-items: center;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fontSize.xxl};
+  font-size: ${({ theme }) => theme.fontSize.l};
   color: ${({ theme }) => theme.colors.neon};
 `;
