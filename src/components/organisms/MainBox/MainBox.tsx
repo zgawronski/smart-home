@@ -1,19 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { BoxDiv, Container, Wrapper } from './MainBox.style';
 
 const MainBox: FC = () => {
+  const [bulbState, setBulbState] = useState(false);
+  const turnOff = () => {
+    const bulbOn = './img/bulb_on.svg';
+    const bulbOf = './img/bulb_off.svg';
+  };
   return (
     <Wrapper>
-      <h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit recusandae amet illum praesentium, ea tempore aliquid pariatur. Quos officiis
-        eaque quibusdam aliquam aspernatur qui molestias facilis adipisci exercitationem sunt! Nemo!
-      </h2>
-      <h5>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non facere voluptatem pariatur reprehenderit voluptas eveniet adipisci quae mollitia
-        nemo dolore expedita animi sapiente, quidem distinctio eaque maxime iusto repudiandae natus?
-      </h5>
+      <h2>Stay smart with smart home</h2>
+      <h3>Lista urządzeń podpiętych do systemu</h3>
       <Container>
-        <BoxDiv>Żarówka</BoxDiv>
+        <BoxDiv
+          onClick={() => {
+            turnOff();
+          }}
+        >
+          Żarówka
+          <img style={{ width: '15px' }} src="./img/bulb_on.svg" alt="no source" />
+        </BoxDiv>
         <BoxDiv>Gniazdko</BoxDiv>
         <BoxDiv>Czujnik temp</BoxDiv>
       </Container>
