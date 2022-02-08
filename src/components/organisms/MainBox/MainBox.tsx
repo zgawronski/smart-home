@@ -2,10 +2,13 @@ import React, { FC, useState } from 'react';
 import { BoxDiv, Container, Wrapper } from './MainBox.style';
 
 const MainBox: FC = () => {
-  const [bulbState, setBulbState] = useState(false);
+  const bulbOn = './img/bulb_on.svg';
+  const bulbOff = './img/bulb_off.svg';
+
+  const [bulb, setBulb] = useState<string>(bulbOff);
+
   const turnOff = () => {
-    const bulbOn = './img/bulb_on.svg';
-    const bulbOf = './img/bulb_off.svg';
+    bulb === bulbOn ? setBulb(bulbOff) : setBulb(bulbOn);
   };
   return (
     <Wrapper>
@@ -18,7 +21,7 @@ const MainBox: FC = () => {
           }}
         >
           Żarówka
-          <img style={{ width: '15px' }} src="./img/bulb_on.svg" alt="no source" />
+          <img style={{ width: '15px' }} src={bulb} alt="no source" />
         </BoxDiv>
         <BoxDiv>Gniazdko</BoxDiv>
         <BoxDiv>Czujnik temp</BoxDiv>

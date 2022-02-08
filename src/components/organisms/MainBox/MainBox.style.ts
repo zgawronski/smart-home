@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   /* display: grid;
   grid-template-columns: repeat(2, 6fr);
   grid-gap: 10%; */
@@ -38,11 +39,11 @@ export const BoxDiv = styled.div`
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSize.l};
   color: ${({ theme }) => theme.colors.neon};
-  transition: 0.5s ease-in-out;
+
   :hover {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
-    color: ${({ theme }) => theme.colors.darkBlue};
+    min-width: 30%;
   }
+
   img {
     margin: 0.5em;
   }
