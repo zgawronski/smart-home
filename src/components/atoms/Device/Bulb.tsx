@@ -7,20 +7,20 @@ export const Bulb: FC = () => {
 
   useEffect(() => {
     axios
-      .get('/api/v1/devices')
+      .get('/api/v1/devices/bulb')
       .then(({ data }) => setSmartBulb(data.SmartBulb))
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <BoxDiv>
+    <BoxDiv key="bulb" id="drag-1" className="draggable">
       {smartBulb.map((bulb: any) => (
-        <>
-          <p>`{bulb.name as string}`</p>
-          <p>`{bulb.id as string}`</p>
-          <p>`{bulb.type as string}`</p>
-          <p>`{bulb.connectionState[0] as string}`</p>
-        </>
+        <div key="dd">
+          <p key={bulb.name as string}>Urządzenie: {bulb.name as string}</p>
+          <p key={bulb.id as string}>ID: {bulb.id as string}</p>
+          <p key={bulb.type as string}>Typ: {bulb.type as string}</p>
+          <p key={bulb.connectionState[0] as string}>Stan podłączenia: {bulb.connectionState[0] as string}</p>
+        </div>
       ))}
     </BoxDiv>
   );

@@ -11,7 +11,7 @@ interface SmartDevice {
 }
 
 export const handlers = [
-  rest.get<SmartDevice>('/api/v1/devices', (req, res, ctx) => {
+  rest.get<SmartDevice>('/api/v1/devices/bulb', (req, res, ctx) => {
     if (req.params.id) {
       const matchingBulb = SmartBulb.filter((bulb) => bulb.id === req.params.id);
       return res(
@@ -23,7 +23,7 @@ export const handlers = [
     }
     return res(ctx.status(200), ctx.json({ SmartBulb: SmartBulb }));
   }),
-  rest.get<SmartDevice>('/api/v1/devices', (req, res, ctx) => {
+  rest.get<SmartDevice>('/api/v1/devices/outlet', (req, res, ctx) => {
     if (req.params.id) {
       const matchingOutlet = SmartOutlet.filter((outlet) => outlet.id === req.params.id);
       return res(
@@ -35,7 +35,7 @@ export const handlers = [
     }
     return res(ctx.status(200), ctx.json({ SmartOutlet: SmartOutlet }));
   }),
-  rest.get<SmartDevice>('/api/v1/devices', (req, res, ctx) => {
+  rest.get<SmartDevice>('/api/v1/devices/temperatureSensor', (req, res, ctx) => {
     if (req.params.id) {
       const matchingTemperatureSensor = SmartTemperatureSensor.filter((temperatureSensor) => temperatureSensor.id === req.params.id);
       return res(

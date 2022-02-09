@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 85%;
+  height: 80%;
   margin: auto;
   padding: 15px;
   background-color: ${({ theme }) => theme.colors.lightGrey};

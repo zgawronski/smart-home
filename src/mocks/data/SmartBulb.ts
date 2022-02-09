@@ -5,7 +5,7 @@ export const SmartBulb = [
     name: 'Żarówka',
     connectionState: ['connected', 'disconnected', 'poorConnection'], // 'connected', 'disconnected' or 'poorConnection'
     isTurnedOn: Boolean, // boolean
-    brightness: 26, // <0, 100>
+    brightness: Math.random() * 100, // <0, 100>
     color: String, // in the CSS formats
   },
 ];
