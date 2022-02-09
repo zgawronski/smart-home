@@ -10,6 +10,7 @@ import { TemperatureSensor } from '../../atoms/Device/TemperatureSensor';
 
 const MainBox: FC = () => {
   interact('.draggable').draggable({
+    inertia: true,
     modifiers: [
       interact.modifiers.restrictRect({
         restriction: 'parent',

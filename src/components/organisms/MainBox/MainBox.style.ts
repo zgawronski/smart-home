@@ -12,16 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* display: grid;
-  grid-template-columns: repeat(2, 6fr);
-  grid-gap: 10%; */
   width: 80%;
   height: 80%;
   margin-left: auto;
   margin-right: auto;
-  > * {
-    flex: 1 1 5em;
-  }
 `;
