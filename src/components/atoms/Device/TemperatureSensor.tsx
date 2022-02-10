@@ -7,8 +7,8 @@ export const TemperatureSensor: FC = () => {
 
   useEffect(() => {
     axios
-      .get('/api/v1/devices/outlet')
-      .then(({ data }) => setTempSensor(data.SmartOutlet))
+      .get('/api/v1/devices/temperatureSensor')
+      .then(({ data }) => setTempSensor(data.SmartTemperatureSensor))
       .catch((err) => console.log(err));
   }, []);
   return (
