@@ -20,6 +20,11 @@ export const BoxDiv = styled.div<{ smaller: boolean; bigger: boolean }>`
   }
   p {
     margin: 5px;
+
+    :first-child {
+      font-weight: bold;
+    }
+
     :not(:first-child) {
       ${({ smaller }) =>
         smaller &&
@@ -48,10 +53,10 @@ export const BoxDiv = styled.div<{ smaller: boolean; bigger: boolean }>`
     `}
 `;
 
-export const StatusP = styled.p<{ colorX: string }>`
+export const StatusP = styled.p<{ statusColor: string }>`
    {
     margin: 5px;
-    color: ${({ theme, colorX }) => {
+    color: ${({ theme, statusColor: colorX }) => {
       if (colorX === ('connected' as string)) return theme.colors.white;
       if (colorX === ('disconnected' as string)) return theme.colors.darkGrey;
       if (colorX === ('poorConnection' as string)) return theme.colors.red;

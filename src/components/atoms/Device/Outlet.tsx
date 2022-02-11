@@ -19,7 +19,7 @@ export const Outlet: FC = () => {
 
   return (
     <BoxDiv
-      onClick={() => {
+      onDoubleClick={() => {
         changeSize();
       }}
       bigger={xl}
@@ -32,10 +32,12 @@ export const Outlet: FC = () => {
         const connectionStatus = outlet.connectionState[2] as string;
         return (
           <div key="dd">
-            <p key={outlet.name as string}>{outlet.name as string}</p>
+            <StatusP statusColor={connectionStatus} key={outlet.name as string}>
+              {outlet.name as string}
+            </StatusP>
             <p key={outlet.id as string}>ID: {outlet.id as string}</p>
             <p key={outlet.type as string}>Typ: {outlet.type as string}</p>
-            <StatusP colorX={connectionStatus} key={connectionStatus}>
+            <StatusP statusColor={connectionStatus} key={connectionStatus}>
               Stan podłączenia: {connectionStatus}
             </StatusP>
           </div>

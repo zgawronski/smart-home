@@ -18,7 +18,7 @@ export const TemperatureSensor: FC = () => {
   }, []);
   return (
     <BoxDiv
-      onClick={() => {
+      onDoubleClick={() => {
         changeSize();
       }}
       bigger={xl}
@@ -31,10 +31,12 @@ export const TemperatureSensor: FC = () => {
         const connectionStatus = temperatureSensor.connectionState[1] as string;
         return (
           <div key="dd">
-            <p key={temperatureSensor.name as string}>{temperatureSensor.name as string}</p>
+            <StatusP statusColor={connectionStatus} key={temperatureSensor.name as string}>
+              {temperatureSensor.name as string}
+            </StatusP>
             <p key={temperatureSensor.id as string}>ID: {temperatureSensor.id as string}</p>
             <p key={temperatureSensor.type as string}>Typ: {temperatureSensor.type as string}</p>
-            <StatusP colorX={connectionStatus} key={connectionStatus}>
+            <StatusP statusColor={connectionStatus} key={connectionStatus}>
               Stan podłączenia: {connectionStatus}
             </StatusP>
           </div>

@@ -18,7 +18,7 @@ export const Bulb: FC = () => {
 
   return (
     <BoxDiv
-      onClick={() => {
+      onDoubleClick={() => {
         changeSize();
       }}
       bigger={xl}
@@ -31,10 +31,12 @@ export const Bulb: FC = () => {
         const connectionStatus = bulb.connectionState[0] as string;
         return (
           <div key="dd">
-            <p key={bulb.name as string}>{bulb.name as string}</p>
+            <StatusP statusColor={connectionStatus} key={bulb.name as string}>
+              {bulb.name as string}
+            </StatusP>
             <p key={bulb.id as string}>ID: {bulb.id as string}</p>
             <p key={bulb.type as string}>Typ: {bulb.type as string}</p>
-            <StatusP colorX={connectionStatus} key={connectionStatus}>
+            <StatusP statusColor={connectionStatus} key={connectionStatus}>
               Stan podłączenia: {connectionStatus}
             </StatusP>
           </div>
