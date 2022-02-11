@@ -1,9 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import { BoxDiv, BoxP } from './Device.style';
+import { BoxDiv, StatusP } from './Device.style';
 
 export const Bulb: FC = () => {
   const [smartBulb, setSmartBulb] = useState<[]>([]);
+  const [xl, setXl] = useState<boolean>(false);
+  const changeSize = () => {
+    !xl ? setXl(true) : setXl(false);
+  };
 
   useEffect(() => {
     axios
@@ -13,17 +17,26 @@ export const Bulb: FC = () => {
   }, []);
 
   return (
-    <BoxDiv key="bulb" id="drag-1" className="draggable">
+    <BoxDiv
+      onClick={() => {
+        changeSize();
+      }}
+      bigger={xl}
+      smaller={!xl}
+      key="bulb"
+      id="drag-1"
+      className="draggable"
+    >
       {smartBulb.map((bulb: any) => {
         const connectionStatus = bulb.connectionState[0] as string;
         return (
           <div key="dd">
-            <p key={bulb.name as string}>Urządzenie: {bulb.name as string}</p>
+            <p key={bulb.name as string}>{bulb.name as string}</p>
             <p key={bulb.id as string}>ID: {bulb.id as string}</p>
             <p key={bulb.type as string}>Typ: {bulb.type as string}</p>
-            <BoxP colorX={connectionStatus} key={connectionStatus}>
+            <StatusP colorX={connectionStatus} key={connectionStatus}>
               Stan podłączenia: {connectionStatus}
-            </BoxP>
+            </StatusP>
           </div>
         );
       })}

@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const BoxDiv = styled.div`
+export const BoxDiv = styled.div<{ smaller: boolean; bigger: boolean }>`
   display: flex;
   flex-direction: column;
   margin: 5px;
-  max-width: 250px;
-  max-height: 135px;
+  align-items: center;
+  justify-content: center;
   border-radius: 7px;
   background-color: ${({ theme }) => theme.colors.boxBackground};
   padding: 5px;
@@ -20,10 +20,35 @@ export const BoxDiv = styled.div`
   }
   p {
     margin: 5px;
+    :not(:first-child) {
+      ${({ smaller }) =>
+        smaller &&
+        css`
+          display: none;
+        `}
+      ${({ bigger }) =>
+        bigger &&
+        css`
+          display: block;
+        `}
+    }
   }
+
+  ${({ smaller }) =>
+    smaller &&
+    css`
+      width: 100px;
+      height: 100px;
+    `}
+  ${({ bigger }) =>
+    bigger &&
+    css`
+      width: 250px;
+      height: 100px;
+    `}
 `;
 
-export const BoxP = styled.p<{ colorX: string }>`
+export const StatusP = styled.p<{ colorX: string }>`
    {
     margin: 5px;
     color: ${({ theme, colorX }) => {
