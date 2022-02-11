@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import axios from 'axios';
-import { BoxDiv } from './Device.style';
+import { BoxDiv, BoxP } from './Device.style';
 
 export const TemperatureSensor: FC = () => {
   const [smartTempSensor, setTempSensor] = useState<[]>([]);
@@ -13,14 +13,19 @@ export const TemperatureSensor: FC = () => {
   }, []);
   return (
     <BoxDiv key="TemperatureSensor" id="drag-3" className="draggable">
-      {smartTempSensor.map((temperatureSensor: any) => (
-        <div key="dd">
-          <p key={temperatureSensor.name as string}>Urządzenie: {temperatureSensor.name as string}</p>
-          <p key={temperatureSensor.id as string}>ID: {temperatureSensor.id as string}</p>
-          <p key={temperatureSensor.type as string}>Typ: {temperatureSensor.type as string}</p>
-          <p key={temperatureSensor.connectionState[2] as string}>Stan podłączenia: {temperatureSensor.connectionState[2] as string}</p>
-        </div>
-      ))}
+      {smartTempSensor.map((temperatureSensor: any) => {
+        const connectionStatus = temperatureSensor.connectionState[1] as string;
+        return (
+          <div key="dd">
+            <p key={temperatureSensor.name as string}>Urządzenie: {temperatureSensor.name as string}</p>
+            <p key={temperatureSensor.id as string}>ID: {temperatureSensor.id as string}</p>
+            <p key={temperatureSensor.type as string}>Typ: {temperatureSensor.type as string}</p>
+            <BoxP colorX={connectionStatus} key={connectionStatus}>
+              Stan podłączenia: {connectionStatus}
+            </BoxP>
+          </div>
+        );
+      })}
     </BoxDiv>
   );
 };

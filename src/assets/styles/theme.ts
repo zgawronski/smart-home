@@ -10,6 +10,8 @@ export const theme = {
     neon: '#66D3FA',
     neonLight: '#FFE5E5',
     boxBackground: '#001F3F',
+    darkRed: '#8B0000',
+    red: '#FF0000',
   },
   fontSize: {
     xxl: '3rem', // 48px
