@@ -49,7 +49,7 @@ export const BoxDiv = styled.div<{ smaller: boolean; bigger: boolean }>`
     bigger &&
     css`
       width: 250px;
-      height: 100px;
+      height: 150px;
     `}
 `;
 

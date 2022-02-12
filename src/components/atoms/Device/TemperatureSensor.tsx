@@ -34,6 +34,9 @@ export const TemperatureSensor: FC = () => {
             <StatusP statusColor={connectionStatus} key={temperatureSensor.name as string}>
               {temperatureSensor.name as string}
             </StatusP>
+            <p key={temperatureSensor.temperature as string}>
+              Aktualna temperatura: {temperatureSensor.temperature as string} {'\u00b0'} C
+            </p>
             <p key={temperatureSensor.id as string}>ID: {temperatureSensor.id as string}</p>
             <p key={temperatureSensor.type as string}>Typ: {temperatureSensor.type as string}</p>
             <StatusP statusColor={connectionStatus} key={connectionStatus}>
